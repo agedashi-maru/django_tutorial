@@ -1,6 +1,9 @@
 <h1>{{ question.question_text }}</h1>
 <ul>
 {% for choice in question.choice_set.all %}
+    <!-- 組み込みフィルタ -->
+    <!-- Djangoのテンプレートファイル内で /{/{ value|フィルタ:"引数" /}/} のように使用します。-->
+    <!-- pluralize → 入力値が 1 でない場合、複数形を表す接尾辞を返す。デフォルトは's' ex: 6votes-->
     <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
